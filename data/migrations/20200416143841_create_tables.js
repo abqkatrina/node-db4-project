@@ -6,6 +6,14 @@ exports.up = function(knex) {
         tbl.text('Recipe', 128)
           .unique()
           .notNullable();
+        tbl.integer('name')
+            .unsigned()
+            .notNullable()
+            .references('ingredient')
+            .inTable('ingredients');
+        tbl.integer('quantity')
+            .unsigned()
+            .notNullable();
       })
       .createTable('steps', tbl => {
         tbl.increments();
@@ -13,7 +21,8 @@ exports.up = function(knex) {
           .unsigned()
           .notNullable();
         tbl.text('instructions')
-          .notNullable();
+            .unsigned
+            .notNullable();
         tbl.integer('recipe_id')
           .unsigned()
           .notNullable()
@@ -21,7 +30,25 @@ exports.up = function(knex) {
           .inTable('recipes')
           .onUpdate('CASCADE')
           .onDelete('CASCADE');
-      });
+      })
+      .createTable('ingredients', tbl => {
+          tbl.increments();
+          tbl.text('ingredient')
+            .unsigned()
+            .notNullable;
+          tbl.integer('recipe_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('recipes')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
+        tbl.integer('quantity')
+            .unsigned()
+            .notNullable()
+            .references('quantity')
+            .inTable('recipes')
+      })
   };
   
   exports.down = function(knex) {

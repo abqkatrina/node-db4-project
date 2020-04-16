@@ -1,15 +1,46 @@
-# Web API IV Challenge
+# Recipe Book
 
-In this challenge, you will **deploy** an API of your choosing to `heroku`.
+## Topics
 
-## Instructions
+- database modeling.
+- migration scripts.
+- seeding.
+- knex.
 
-You are allowed, and **encouraged**, to collaborate with other peers. Please follow the twenty-minute rule, before seeking support from your PM and Instructor.
+## Assignment
 
-## Minimum Viable Product
+Design the **data model** for a _recipe book_ application, then use `Knex migrations and seeding` functionality to build a `SQLite3` database based on the model and seed it with test data.
 
-Pick any API, could be one of your past projects, and deploy it to `heroku`. Once deployed, send the URL to the TL for your group.
+The requirements for the system, as stated by the client are:
 
-## Stretch Goal
+- have a way to manage recipes.
+- have a way to manage ingredients.
+- a **recipe** could have more than one **ingredient** and the same **ingredient** can be used in multiple recipes. Examples are _"cup of corn flour"_ or _"gram of butter"_.
+- when saving the ingredients for a **recipe** capture the quantity required for that **ingredient** as a floating number.
+- have a way to save step by step instructions for preparing a recipe.
 
-- add support for environment variables using `.env` files. You can use the [dotenv](https://www.npmjs.com/package/dotenv) npm module.
+**Hint**: Before writing any code, write out all desired tables in the data model and determine all relationships between tables. 
+
+### Migrations and Seeds
+
+- Write a migration file that creates all tables necessary to model this data
+- Write seed files to populate the tables with test data. **Hint**: Keep your recipes *very* simple or this step could become extremely time consuming.
+
+### Data Access
+
+In addition to the `migrations` and `seeding` scripts, write a data access file that **exports** an object with the following functions:
+
+- `getRecipes()`: should return a list of all recipes in the database.
+- `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
+- `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
+
+Organize and name your files anyway you see fit.
+
+## Stretch Problem
+
+Build the following endpoints. Write any additional data access helpers as needed.
+
+- `GET /api/recipes/`: all recipes (without details about ingredients or steps)
+- `GET /api/recipes/:id/shoppingList`: a list of ingredients and quantites for a single recipe
+- `GET /api/recipes/:id/instructions`: a correctly ordered list of how to prepare a single recipe
+- `GET /api/ingredients/:id/recipes`: all recipes in the system that utilize a single ingredient 

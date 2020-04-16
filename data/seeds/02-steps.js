@@ -13,12 +13,12 @@ exports.seed = function(knex) {
       {
           recipe_id: 1,
           step_number: 3,
-          instructions: "Remove from heat when water is bubbling",
+          instructions: "Remove from heat when water is bubbling"
       },
       {
           recipe_id: 2,
           step_number: 1,
-          instructions: "Get two slices of bread",
+          instructions: "Get two slices of bread"
       },
       { 
         recipe_id: 2, 
@@ -28,7 +28,7 @@ exports.seed = function(knex) {
       {
           recipe_id: 2,
           step_number: 2,
-          instructions: "Put jelly/jam/preserves/marmalade on one slice",
+          instructions: "Put jelly/jam/preserves/marmalade on one slice"
       },
       { 
         recipe_id: 2, 
@@ -43,17 +43,17 @@ exports.seed = function(knex) {
       {
           recipe_id: 3,
           step_number: 4,
-          instructions: "sApply heat while stirring",
+          instructions: "sApply heat while stirring"
       },
       {
           recipe_id: 3,
           step_number: 1,
-          instructions: "Buy a can of soup concentrate",
+          instructions: "Buy a can of soup concentrate"
       },
       {
           recipe_id: 3,
           step_number: 3,
-          instructions: "Put contents of can plus can's worth of water into a pot",
+          instructions: "Put contents of can plus can's worth of water into a pot"
       }
   ]);
 };
